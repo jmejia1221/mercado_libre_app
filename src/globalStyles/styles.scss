@@ -42,3 +42,16 @@ figure {
   padding: 0;
   margin: 0;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--gray-2);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--gray-2);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--gray-2);
+}

@@ -1,10 +1,10 @@
 import styles from './Home.module.scss';
-import Button from "../../components/UI/Button";
+import Header from "../../components/Header";
 
 function Home() {
   return (
     <div>
-        <Button>Comprar</Button>
+        <Header />
     </div>
   );
 }

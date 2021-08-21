@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// CSS
 import './index.scss';
+
+// Components
 import Home from './pages/home/home';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+      <Router>
+          <Switch>
+              {/*<Route path="/items/:id" exact component={SearchByProduct} />*/}
+              {/*<Route path="/items" exact component={ProductList} />*/}
+              {/*<Route path="/not-found" component={NotFound} />*/}
+              <Route exact path="/" component={Home} />
+              {/*<Route component={NoPage} />*/}
+          </Switch>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
