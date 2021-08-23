@@ -10,6 +10,7 @@ import api from "../../services/api_v1";
 // components
 import Products from "../../components/modules/Products";
 import Header from "../../components/Header";
+import Spinner from "../../components/UI/Spinner";
 
 // CSS
 import styles from './Products.module.scss';
@@ -19,6 +20,7 @@ const ProductsPage = () => {
     let location = useLocation()
     const searchValue = parse(location.search, {ignoreQueryPrefix: true});
 
+    let renderSpinner = null;
     useEffect(() => {
         api.get('/items', {
             params: {
@@ -33,11 +35,23 @@ const ProductsPage = () => {
         })
     }, [location])
 
+    if (!products?.items?.length && searchValue.search) renderSpinner = <Spinner />
+
     return (
         <div>
             <Header />
             <h2 className={styles.searchTitle}>{searchValue.search}</h2>
-            { !isEmpty(products) && (<Products items={products.items} />) }
+            { renderSpinner }
+            { (products?.items?.length) ?
+                (
+                    <Products items={products.items} />
+                ) : null }
+            { ( !renderSpinner && !products?.items.length) ? (
+                    <p className={styles.noSearch}>
+                    Es posible que no hayas introducido ninguna busqueda todavia,
+                    agrega una en la barra de busqueda...
+                    </p>
+                ) : null }
         </div>
     );
 };

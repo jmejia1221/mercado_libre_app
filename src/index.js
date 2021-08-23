@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 // CSS
 import './index.scss';
@@ -17,9 +17,8 @@ ReactDOM.render(
           <Switch>
               <Route path="/items/:id" exact component={ProductPageDetail} />
               <Route path="/items" exact component={ProductsPage} />
-              {/*<Route path="/not-found" component={NotFound} />*/}
               <Route exact path="/" component={Home} />
-              {/*<Route component={NoPage} />*/}
+              <Redirect to="/" />
           </Switch>
       </Router>
   </React.StrictMode>,

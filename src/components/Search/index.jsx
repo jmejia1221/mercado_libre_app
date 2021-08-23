@@ -36,11 +36,16 @@ const Search = ({ className }) => {
         history.push(`/items?search=${searchValue}`)
     }
 
+    const keyPressHandler = (e) => {
+        if (e.keyCode === 13) searchHandler()
+    }
+
     return (
         <div className={classNames(styles.container, className)}>
             <Input
                 value={searchValue}
                 onChange={searchInputHandler}
+                onKeyDown={keyPressHandler}
                 placeholder="Nunca dejes de buscar" />
             <button
                 onClick={searchHandler}

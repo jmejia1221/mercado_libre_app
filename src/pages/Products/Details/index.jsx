@@ -9,6 +9,7 @@ import {isEmpty} from "lodash";
 import Header from "../../../components/Header";
 import ProductDetails from "../../../components/modules/Products/Details";
 import Breadcrumb from "../../../components/UI/Breadcrumb";
+import Spinner from "../../../components/UI/Spinner";
 
 const ProductPageDetail = () => {
     const [product, setProduct] = useState({});
@@ -28,6 +29,9 @@ const ProductPageDetail = () => {
     return (
         <>
             <Header />
+            { isEmpty(product) && (
+                <Spinner />
+            )}
             { !isEmpty(product) && (
                 <>
                     <Breadcrumb categories={product.categories} />

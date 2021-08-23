@@ -4,3 +4,9 @@
   padding: 1.6rem 0;
   @include fixContent;
 }
+.noSearch {
+  color: var(--gray-2);
+  background-color: var(--white);
+  padding: 1.6rem;
+  @include fixContent;
+}
