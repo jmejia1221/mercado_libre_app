@@ -10,14 +10,16 @@ import Search from "../Search";
 import styles from './Header.module.scss';
 import Logo from "../Logo";
 
-const Header = ({ children, className }) => {
+const Header = ({ searchHandler, className }) => {
     return (
         <header
             className={classNames(styles.container, className)}
         >
             <div className={styles.content}>
                 <Logo />
-                <Search className={styles.search} />
+                <Search
+                    searchHandler={searchHandler}
+                    className={styles.search} />
             </div>
         </header>
     );

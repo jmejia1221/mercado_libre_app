@@ -7,14 +7,16 @@ import './index.scss';
 
 // Components
 import Home from './pages/home/home';
+import ProductsPage from "./pages/Products";
+import ProductPageDetail from "./pages/Products/Details";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
       <Router>
           <Switch>
-              {/*<Route path="/items/:id" exact component={SearchByProduct} />*/}
-              {/*<Route path="/items" exact component={ProductList} />*/}
+              <Route path="/items/:id" exact component={ProductPageDetail} />
+              <Route path="/items" exact component={ProductsPage} />
               {/*<Route path="/not-found" component={NotFound} />*/}
               <Route exact path="/" component={Home} />
               {/*<Route component={NoPage} />*/}

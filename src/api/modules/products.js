@@ -12,7 +12,7 @@ const URL = 'https://api.mercadolibre.com/';
 exports.getProducts = (query, res) => {
     axios.get(`${URL}/sites/MLA/search?q=${query}&limit=${productLimit}`)
         .then(response => {
-            res.json(productsFormat(response.data.results))
+            res.json(productsFormat(response.data))
         })
         .catch(err => {
             res.status(500).json({ message: err });
@@ -61,7 +61,8 @@ const productsFormat = (data) => {
  * @returns {Array}
  */
 const getItems = (items) => {
-    return items.map((item) => {
+    let newItems = [];
+    newItems = items.results.map((item) => {
         return {
             id: item.id,
             title: item.title,
@@ -72,9 +73,11 @@ const getItems = (items) => {
             picture: item.thumbnail,
             condition: item.condition,
             free_shipping: item.shipping.free_shipping,
-            address: item.address.state_name
+            address: item.address.state_name,
+            category_id: item.category_id
         };
     });
+    return newItems
 }
 
 /**
@@ -107,7 +110,7 @@ const setItemValues = (product, description) => {
 }
 
 /**
- * service signature
+ * Signature
  * @returns {{name: string, lastname: string}}
  */
 const getAuthor = () => ({ name: 'John', lastname: 'Mejía' });
@@ -117,5 +120,5 @@ const getAuthor = () => ({ name: 'John', lastname: 'Mejía' });
  * @param price
  * @returns {string}
  */
-const formatPrice = (price) => numeral(price).format('$0,00');
+const formatPrice = (price) => numeral(price).format('$ 0,00');
 

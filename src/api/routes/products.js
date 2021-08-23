@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 // Route to '/api/items/'
 router.get('/items', (req, res) => {
     const query = req.query.search;
-    Products.getProducts('silla', res);
+    Products.getProducts(query, res);
 })
 
 // Route to '/api/items/:id'

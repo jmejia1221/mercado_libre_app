@@ -1,0 +1,21 @@
+@import 'src/globalStyles/mixins';
+
+.container {
+  @include fixContent;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  width: 100%;
+  display: flex;
+  li {
+    color: var(--gray-2);
+    &:after {
+      content: ">";
+      margin: 0 1rem;
+    }
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}

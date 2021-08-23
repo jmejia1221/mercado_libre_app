@@ -1,0 +1,47 @@
+@import 'src/globalStyles/mixins';
+
+.container {
+  background-color: var(--white);
+  padding: 1.6rem;
+  @include fixContent;
+  .itemContent {
+    display: flex;
+    figure {
+      min-width: 68rem;
+      max-width: 68rem;
+    }
+    aside {
+      margin-top: 3.2rem;
+      .condition {
+        font-size: var(--size-14);
+        margin-bottom: 1.6rem;
+      }
+      .actions {
+        h2 {
+          font-size: var(--size-24);
+          margin-bottom: 3.2rem;
+        }
+        h3 {
+          font-size: var(--size-46);
+          margin-bottom: 3.2rem;
+        }
+        .buyButton {
+          padding-right: 3.2rem;
+        }
+      }
+    }
+  }
+  .itemDescription {
+    padding-left: 3.2rem;
+    .title,
+    .productDescription {
+      margin: 3.2rem 0;
+    }
+    .title {
+      font-size: var(--size-28);
+    }
+    .productDescription {
+      color: var(--gray-2);
+    }
+  }
+}
